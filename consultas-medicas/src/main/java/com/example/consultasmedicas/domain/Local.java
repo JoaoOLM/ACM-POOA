@@ -15,6 +15,7 @@ public class Local {
     private List<Doctor> medicos = new ArrayList<>();
 
     // Métodos
+
     public Long getId() {
         return id;
     }
@@ -63,4 +64,5 @@ public class Local {
         this.medicos = medicos;
     }
     
+
 }
