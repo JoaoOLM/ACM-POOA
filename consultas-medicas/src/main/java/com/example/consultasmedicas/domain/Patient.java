@@ -10,6 +10,22 @@ public class Patient extends User {
     private List<Insurance> convenios;
 
     // Métodos
+    public List<Appointment> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Appointment> consultas) {
+        this.consultas = consultas;
+    }
+
+    public List<Insurance> getConvenios() {
+        return convenios;
+    }
+
+    public void setConvenios(List<Insurance> convenios) {
+        this.convenios = convenios;
+    }
+    
     @Override
     public void realizarCadastro() {
         
@@ -31,4 +47,5 @@ public class Patient extends User {
     public void avaliarMedico() {
         
     }
+
 }

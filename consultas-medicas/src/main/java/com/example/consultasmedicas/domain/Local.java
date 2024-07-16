@@ -55,4 +55,14 @@ public class Local {
     public void setFotos(String fotos) {
         this.fotos = fotos;
     }
+
+    public List<Doctor> getMedicos() {
+        return medicos;
+    }
+
+    public void setMedicos(List<Doctor> medicos) {
+        this.medicos = medicos;
+    }
+    
+
 }
