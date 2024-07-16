@@ -1,14 +1,10 @@
-package com.example.consultasmedicas;
+package com.example.consultasmedicas.client;
 
 import java.time.LocalDate;
 
 import com.example.consultasmedicas.domain.User;
 import com.example.consultasmedicas.factory.*;
 
-/**
- * Hello world!
- *
- */
 public class UserRegistrationClient {
     public static void main(String[] args) {
         UserFactory userFactory = new PatientFactory();
