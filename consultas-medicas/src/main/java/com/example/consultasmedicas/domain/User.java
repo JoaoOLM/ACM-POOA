@@ -1,11 +1,13 @@
 package com.example.consultasmedicas.domain;
 
+import java.time.LocalDate;
+
 public abstract class User {
     // Atributos
     protected Long id;
     protected String nome;
     protected String cpf;
-    protected String dataNascimento;
+    protected LocalDate dataNascimento;
     protected String telefone;
     protected String email;
     protected String endereco;
@@ -35,6 +37,14 @@ public abstract class User {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getCpf() {
         return cpf;
     }
@@ -43,11 +53,11 @@ public abstract class User {
         this.cpf = cpf;
     }
 
-    public String getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

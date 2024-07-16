@@ -3,6 +3,7 @@ package com.example.consultasmedicas;
 import java.time.LocalDate;
 
 import com.example.consultasmedicas.domain.User;
+import com.example.consultasmedicas.factory.*;
 
 /**
  * Hello world!
