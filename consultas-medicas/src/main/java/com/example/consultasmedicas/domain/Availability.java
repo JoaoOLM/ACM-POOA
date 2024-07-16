@@ -11,6 +11,29 @@ public class Availability {
 
     // Relacionamentos 
 
-    // Métodos 
+    // Métodos
+    public DayOfWeek getDiaDaSemana() {
+        return DiaDaSemana;
+    }
+
+    public void setDiaDaSemana(DayOfWeek DiaDaSemana) {
+        this.DiaDaSemana = DiaDaSemana;
+    }
+
+    public Time getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Time horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Time getHoraFim() {
+        return horaFim;
+    }
+
+    public void setHoraFim(Time horaFim) {
+        this.horaFim = horaFim;
+    }
     
 }
