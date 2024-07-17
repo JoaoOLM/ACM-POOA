@@ -39,6 +39,9 @@ public class Patient extends User {
     public void agendarConsulta() {
         
     }
+    public void excluirConsulta() {
+        
+    }
     
     public void visualizarHistorico() {
         

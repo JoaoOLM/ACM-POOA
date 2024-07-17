@@ -16,7 +16,9 @@ public class Doctor extends User {
     private List<Speciality> especialidades;
     private List<Insurance> convenios;
     private List<Service> servicos;
+    private Local local;
 
+    
     // Métodos
     public String getCRM() {
         return CRM;
@@ -108,12 +110,39 @@ public class Doctor extends User {
         return consulta;
     }
 
+    public void excluirConsulta() {
+        
+    }
+   
     public void adicionarServico(Service servico) {
         this.servicos.add(servico);
     }
-
-    public void excluirConsulta() {
+    public void excluirServico(Service servico) {
         
+    }
+
+    public void adicionarEspecialidade(Speciality especialidade) {
+    this.especialidades.add(especialidade);
+    }
+    
+    public void excluirEspecialidade(Speciality especialidade) {
+    
+    }
+    
+    public void adicionarConvenio(Insurance convenio) {
+        this.convenios.add(convenio);
+    }
+    
+    public void excluirConvenio(Insurance convenio) {
+    
+    }
+    
+    public void adicionarLocal(Local local) {
+        this.local = local;
+    }
+
+    public void excluirLocal(Local local) {
+    
     }
 
     public void editarPerfil() {
