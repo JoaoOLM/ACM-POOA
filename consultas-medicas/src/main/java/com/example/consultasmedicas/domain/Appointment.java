@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-public class Appointment {
+public class Appointment extends AppointmentSubject {
     // Atributos
     private Long id;
     private LocalDate data;
@@ -12,6 +12,26 @@ public class Appointment {
     private String status;
     private double valor;
     private String anotacoes;
+    private enum state {
+        SOLICITADA {
+            @Override
+            public String toString() {
+                return "Solicitada";
+            }
+        },
+        REALIZADA {
+            @Override
+            public String toString() {
+                return "Realizada";
+            }
+        },
+        CANCELADA {
+            @Override
+            public String toString() {
+                return "Cancelada";
+            }
+        }
+    }
 
     // Relacionamentos
     private Patient responsavel;
@@ -125,5 +145,11 @@ public class Appointment {
     public void fazerAnotacoes() {
         
     }
-    
+
+    public void notificar() {
+        for (User user:this.Observers){
+            user.update(this);
+        }
+    }
+   
 }

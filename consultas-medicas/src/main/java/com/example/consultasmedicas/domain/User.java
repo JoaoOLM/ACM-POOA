@@ -102,8 +102,8 @@ public abstract class User {
         this.foto = foto;
     }
 
-    public void update(AppointmentSubject appointmentSubject){
-        this.state = appointmentSubject;
+    public void update(Appointment appointment){
+        System.out.println(appointment.getId() + " consulta foi alterada para: " + appointment.toString());
     }
 
 }
