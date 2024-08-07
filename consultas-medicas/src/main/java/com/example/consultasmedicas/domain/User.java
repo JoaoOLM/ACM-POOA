@@ -13,6 +13,7 @@ public abstract class User {
     protected String endereco;
     protected String senha;
     protected String foto;
+    protected AppointmentSubject state;
 
     // Relacionamentos 
 
@@ -99,6 +100,10 @@ public abstract class User {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public void update(AppointmentSubject appointmentSubject){
+        this.state = appointmentSubject;
     }
 
 }
