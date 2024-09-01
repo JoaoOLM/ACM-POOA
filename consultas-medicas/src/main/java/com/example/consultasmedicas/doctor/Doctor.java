@@ -1,8 +1,13 @@
-package com.example.consultasmedicas.domain;
+package com.example.consultasmedicas.doctor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+
+import com.example.consultasmedicas.appointment.Appointment;
+import com.example.consultasmedicas.common.Local;
+import com.example.consultasmedicas.common.User;
+import com.example.consultasmedicas.patient.Patient;
 
 public class Doctor extends User {
     // Atributos
@@ -18,7 +23,6 @@ public class Doctor extends User {
     private List<Service> servicos;
     private Local local;
 
-    
     // Métodos
     public String getCRM() {
         return CRM;
@@ -91,14 +95,15 @@ public class Doctor extends User {
 
     @Override
     public void alterarDados() {
-        
+
     }
 
     public void alterarDisponibilidade() {
-        
+
     }
 
-    public Appointment criarConsulta(Patient paciente, LocalDate data, LocalTime hora, Local local, List<Service> servicos) {
+    public Appointment criarConsulta(Patient paciente, LocalDate data, LocalTime hora, Local local,
+            List<Service> servicos) {
         Appointment consulta = new Appointment();
         consulta.setPaciente(paciente);
         consulta.setMedico(this);
@@ -111,45 +116,46 @@ public class Doctor extends User {
     }
 
     public void excluirConsulta() {
-        
+
     }
-   
+
     public void adicionarServico(Service servico) {
         this.servicos.add(servico);
     }
+
     public void excluirServico(Service servico) {
-        
+
     }
 
     public void adicionarEspecialidade(Speciality especialidade) {
-    this.especialidades.add(especialidade);
+        this.especialidades.add(especialidade);
     }
-    
+
     public void excluirEspecialidade(Speciality especialidade) {
-    
+
     }
-    
+
     public void adicionarConvenio(Insurance convenio) {
         this.convenios.add(convenio);
     }
-    
+
     public void excluirConvenio(Insurance convenio) {
-    
+
     }
-    
+
     public void adicionarLocal(Local local) {
         this.local = local;
     }
 
     public void excluirLocal(Local local) {
-    
+
     }
 
     public void editarPerfil() {
-        
+
     }
 
     public void visualizarConsultas() {
-        
+
     }
 }

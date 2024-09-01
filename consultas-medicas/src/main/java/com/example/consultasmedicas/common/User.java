@@ -1,33 +1,17 @@
-package com.example.consultasmedicas.domain;
+package com.example.consultasmedicas.common;
 
 import java.time.LocalDate;
 
-public abstract class User {
+public abstract class User implements AppointmentSubscriber {
     // Atributos
-    protected Long id;
-    protected String nome;
-    protected String cpf;
-    protected LocalDate dataNascimento;
-    protected String telefone;
-    protected String email;
-    protected String endereco;
-    protected String senha;
-    protected String foto;
-
-    // Relacionamentos 
-
-    // Métodos
-    public abstract void realizarCadastro();
-
-    public abstract void alterarDados();
-
-    public void recuperarSenha() {
-
-    }
-
-    public void enviarMensagem() {
-
-    }
+    private Long id;
+    private String nome;
+    private String cpf;
+    private LocalDate dataNascimento;
+    private String telefone;
+    private String email;
+    private String endereco;
+    private List<HealthCarePlan> convenios;
 
     public Long getId() {
         return id;
@@ -85,20 +69,13 @@ public abstract class User {
         this.endereco = endereco;
     }
 
-    public String getSenha() {
-        return senha;
+    public List<HealthCarePlan> getConvenios() {
+        return convenios;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setConvenios(List<HealthCarePlan> convenios) {
+        this.convenios = convenios;
     }
 
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
+    public abstract void notificarAlteracaoConsulta(String msg);
 }

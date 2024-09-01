@@ -1,4 +1,4 @@
-package com.example.consultasmedicas.domain;
+package com.example.consultasmedicas.doctor;
 
 import java.sql.Time;
 import java.time.DayOfWeek;
@@ -9,7 +9,7 @@ public class Availability {
     private Time horaInicio;
     private Time horaFim;
 
-    // Relacionamentos 
+    // Relacionamentos
 
     // Métodos
     public DayOfWeek getDiaDaSemana() {
@@ -35,5 +35,5 @@ public class Availability {
     public void setHoraFim(Time horaFim) {
         this.horaFim = horaFim;
     }
-    
+
 }

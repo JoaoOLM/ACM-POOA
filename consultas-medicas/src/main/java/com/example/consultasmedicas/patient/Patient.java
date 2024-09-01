@@ -1,11 +1,13 @@
-package com.example.consultasmedicas.domain;
+package com.example.consultasmedicas.patient;
 
 import java.util.List;
 
-public class Patient extends User {
-    // Atributos 
+import com.example.consultasmedicas.appointment.Appointment;
 
-    // Relacionamentos 
+public class Patient extends User {
+    // Atributos
+
+    // Relacionamentos
     private List<Appointment> consultas;
     private List<Insurance> convenios;
 
@@ -25,30 +27,31 @@ public class Patient extends User {
     public void setConvenios(List<Insurance> convenios) {
         this.convenios = convenios;
     }
-    
+
     @Override
     public void realizarCadastro() {
-        
+
     }
-    
+
     @Override
     public void alterarDados() {
-        
+
     }
-    
+
     public void agendarConsulta() {
-        
+
     }
+
     public void excluirConsulta() {
-        
+
     }
-    
+
     public void visualizarHistorico() {
-        
+
     }
-    
+
     public void avaliarMedico() {
-        
+
     }
 
 }

@@ -1,14 +1,13 @@
-package com.example.consultasmedicas.domain;
+package com.example.consultasmedicas.doctor;
 
-public class Insurance {
+public class Speciality {
     // Atributos
     private Long id;
     private String nome;
 
-    // Relacionamentos 
+    // Relacionamentos
 
-    // Métodos 
-
+    // Métodos
     public Long getId() {
         return id;
     }
@@ -24,5 +23,5 @@ public class Insurance {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
 }

@@ -1,15 +1,17 @@
-package com.example.consultasmedicas.domain;
+package com.example.consultasmedicas.common;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.consultasmedicas.doctor.Doctor;
+
 public class Local {
     // Atributos
     private Long id;
-    private String nome;  
-    private String endereco; 
-    private String telefone; 
-    private String fotos; 
+    private String nome;
+    private String endereco;
+    private String telefone;
+    private String fotos;
 
     // Relacionamentos
     private List<Doctor> medicos = new ArrayList<>();
@@ -63,6 +65,5 @@ public class Local {
     public void setMedicos(List<Doctor> medicos) {
         this.medicos = medicos;
     }
-    
 
 }
