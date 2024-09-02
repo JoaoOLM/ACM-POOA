@@ -1,4 +1,4 @@
-package com.example.consultasmedicas.common;
+package com.example.consultasmedicas.model;
 
 public class HealthCarePlan {
     private int id;

@@ -1,6 +1,10 @@
-package com.example.consultasmedicas.common;
+package com.example.consultasmedicas.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.consultasmedicas.interfaces.AppointmentSubscriber;
 
 public abstract class User implements AppointmentSubscriber {
     // Atributos
@@ -12,6 +16,18 @@ public abstract class User implements AppointmentSubscriber {
     private String email;
     private String endereco;
     private List<HealthCarePlan> convenios;
+
+    public User(Long id, String nome, String cpf, LocalDate dataNascimento, String telefone, String email,
+            String endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
+        this.email = email;
+        this.endereco = endereco;
+        this.convenios = new ArrayList<HealthCarePlan>();
+    }
 
     public Long getId() {
         return id;
@@ -73,8 +89,14 @@ public abstract class User implements AppointmentSubscriber {
         return convenios;
     }
 
-    public void setConvenios(List<HealthCarePlan> convenios) {
-        this.convenios = convenios;
+    public void adicionarConvenio(HealthCarePlan convenio) {
+        convenios.add(convenio);
+        System.out.println(convenio.getName() + " foi adicionado aos seus convênios.");
+    }
+
+    public void removerConvenio(HealthCarePlan convenio) {
+        convenios.remove(convenio);
+        System.out.println(convenio.getName() + " foi removido dos seus convênios.");
     }
 
     public abstract void notificarAlteracaoConsulta(String msg);

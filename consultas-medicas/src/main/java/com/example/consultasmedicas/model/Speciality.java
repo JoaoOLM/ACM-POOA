@@ -1,4 +1,4 @@
-package com.example.consultasmedicas.doctor;
+package com.example.consultasmedicas.model;
 
 public class Speciality {
     // Atributos

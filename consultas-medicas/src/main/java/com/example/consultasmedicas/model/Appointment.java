@@ -1,12 +1,10 @@
-package com.example.consultasmedicas.appointment;
+package com.example.consultasmedicas.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-import com.example.consultasmedicas.doctor.Doctor;
-import com.example.consultasmedicas.domain.Local;
-import com.example.consultasmedicas.domain.Patient;
-import com.example.consultasmedicas.enums.TipoAlteracao;
+import com.example.consultasmedicas.enums.AppointmentStatus;
 import com.example.consultasmedicas.interfaces.AppointmentSubscriber;
 
 public class Appointment {
@@ -15,7 +13,7 @@ public class Appointment {
     private List<AppointmentSubscriber> subscribers;
     private List<String> anotacoes;
     private double valor;
-    private String status;
+    private AppointmentStatus status;
     private LocalDateTime dataHora;
 
     // Relacionamentos
@@ -24,10 +22,24 @@ public class Appointment {
     private Local local;
 
     // Métodos
-
     public void fazerAnotacao(String anotacao) {
         anotacoes.add(anotacao);
-        System.out.println("A seguinte anotação foi adicionada a consulta (" + toString() "):\n"+ anotacao);
+        System.out.println("A seguinte anotação foi adicionada a consulta (" + toString() + "):\n" + anotacao);
+    }
+
+    public Appointment(Long id, double valor, LocalDateTime dataHora, Patient paciente, Doctor medico, Local local) {
+        this.id = id;
+        this.valor = valor;
+        this.dataHora = dataHora;
+        this.paciente = paciente;
+        this.medico = medico;
+        this.local = local;
+        this.anotacoes = new ArrayList<String>();
+        this.subscribers = new ArrayList<AppointmentSubscriber>();
+        this.status = AppointmentStatus.SCHEDULED;
+
+        adicionarSubscriber(medico);
+        adicionarSubscriber(paciente);
     }
 
     public String toString() {
@@ -48,14 +60,9 @@ public class Appointment {
         subscribers.remove(subscriber);
     }
 
-    public void notificarSubscribers(TipoAlteracao alteracao) {
-        switch (alteracao) {
-            case TipoAlteracao.DATA:
-
-                break;
-
-            default:
-                break;
+    public void notificarSubscribers(String msg) {
+        for (AppointmentSubscriber sub : subscribers) {
+            sub.notificarAlteracaoConsulta(msg);
         }
     }
 
@@ -75,12 +82,8 @@ public class Appointment {
         this.subscribers = subscribers;
     }
 
-    public String getAnotacoes() {
+    public List<String> getAnotacoes() {
         return anotacoes;
-    }
-
-    public void setAnotacoes(String anotacoes) {
-        this.anotacoes = anotacoes;
     }
 
     public double getValor() {
@@ -91,11 +94,11 @@ public class Appointment {
         this.valor = valor;
     }
 
-    public String getStatus() {
+    public AppointmentStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(AppointmentStatus status) {
         this.status = status;
     }
 

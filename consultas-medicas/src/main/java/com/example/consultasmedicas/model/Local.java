@@ -1,9 +1,7 @@
-package com.example.consultasmedicas.common;
+package com.example.consultasmedicas.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.consultasmedicas.doctor.Doctor;
 
 public class Local {
     // Atributos

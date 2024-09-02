@@ -1,11 +1,11 @@
-package com.example.consultasmedicas.doctor;
+package com.example.consultasmedicas.model;
 
 import java.sql.Time;
 import java.time.DayOfWeek;
 
 public class Availability {
     // Atributos
-    private DayOfWeek DiaDaSemana;
+    private DayOfWeek diaDaSemana;
     private Time horaInicio;
     private Time horaFim;
 
@@ -13,11 +13,11 @@ public class Availability {
 
     // Métodos
     public DayOfWeek getDiaDaSemana() {
-        return DiaDaSemana;
+        return diaDaSemana;
     }
 
     public void setDiaDaSemana(DayOfWeek DiaDaSemana) {
-        this.DiaDaSemana = DiaDaSemana;
+        this.diaDaSemana = DiaDaSemana;
     }
 
     public Time getHoraInicio() {
@@ -34,6 +34,10 @@ public class Availability {
 
     public void setHoraFim(Time horaFim) {
         this.horaFim = horaFim;
+    }
+
+    public String toString() {
+        return diaDaSemana.name() + "-" + horaInicio.toString() + "~" + horaFim.toString();
     }
 
 }
