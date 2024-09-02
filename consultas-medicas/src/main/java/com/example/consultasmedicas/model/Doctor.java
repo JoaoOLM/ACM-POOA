@@ -11,7 +11,9 @@ public class Doctor extends User {
 
     // Relacionamentos
     private List<Availability> disponibilidades;
+
     private List<Speciality> especialidades;
+
     private List<Local> locaisAtendidos;
 
     // Métodos
@@ -35,36 +37,57 @@ public class Doctor extends User {
 
     public void adicionarDisponibilidade(Availability disponibilidade) {
         disponibilidades.add(disponibilidade);
-        System.out.println(disponibilidade.toString() + " foi adicionado as suas disponibilidades");
+        System.out.println(
+                "Dr. " + getNome() + ". " + disponibilidade.toString() + " foi adicionado as suas disponibilidades");
     }
 
     public void removerDisponibilidade(Availability disponibilidade) {
         disponibilidades.remove(disponibilidade);
-        System.out.println(disponibilidade.toString() + " foi removido das suas disponibilidades");
+        System.out.println(
+                "Dr. " + getNome() + ". " + disponibilidade.toString() + " foi removido das suas disponibilidades");
     }
 
     public void adicionarEspecialidade(Speciality especialidade) {
         especialidades.add(especialidade);
-        System.out.println(especialidade.getNome() + " foi adicionado as suas especialidades");
+        System.out
+                .println(
+                        "Dr. " + getNome() + ". " + especialidade.getNome() + " foi adicionado as suas especialidades");
     }
 
     public void removerEspecialidade(Speciality especialidade) {
         especialidades.remove(especialidade);
-        System.out.println(especialidade.getNome() + " foi removido as suas especialidades");
+        System.out
+                .println("Dr. " + getNome() + ". " + especialidade.getNome() + " foi removido as suas especialidades");
     }
 
     public void adicionarLocal(Local local) {
         locaisAtendidos.add(local);
-        System.out.println(local.getNome() + " foi adicionado aos suas locais atendidos");
+        System.out.println("Dr. " + getNome() + ". " + local.getNome() + " foi adicionado aos suas locais atendidos");
     }
 
     public void removerLocal(Local local) {
         locaisAtendidos.remove(local);
-        System.out.println(local.getNome() + " foi removido aos suas locais atendidos");
+        System.out.println("Dr. " + getNome() + ". " + local.getNome() + " foi removido aos suas locais atendidos");
+    }
+
+    public List<Availability> getDisponibilidades() {
+        return disponibilidades;
+    }
+
+    public List<Speciality> getEspecialidades() {
+        return especialidades;
+    }
+
+    public List<Local> getLocaisAtendidos() {
+        return locaisAtendidos;
     }
 
     @Override
     public void notificarAlteracaoConsulta(String msg) {
         System.out.println("Houve alteração na consulta Dr. " + this.getNome() + "\n" + msg);
+    }
+
+    public String toString() {
+        return "Dr. " + getNome() + " - Formada em: " + getFormacao();
     }
 }

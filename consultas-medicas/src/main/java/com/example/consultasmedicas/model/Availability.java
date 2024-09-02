@@ -1,43 +1,48 @@
 package com.example.consultasmedicas.model;
 
-import java.sql.Time;
 import java.time.DayOfWeek;
+import java.time.LocalTime;
 
 public class Availability {
     // Atributos
     private DayOfWeek diaDaSemana;
-    private Time horaInicio;
-    private Time horaFim;
-
-    // Relacionamentos
+    private LocalTime horaInicio;
+    private LocalTime horaFim;
 
     // Métodos
+
     public DayOfWeek getDiaDaSemana() {
         return diaDaSemana;
+    }
+
+    public Availability(DayOfWeek diaDaSemana, LocalTime horaInicio, LocalTime horaFim) {
+        this.diaDaSemana = diaDaSemana;
+        this.horaInicio = horaInicio;
+        this.horaFim = horaFim;
     }
 
     public void setDiaDaSemana(DayOfWeek DiaDaSemana) {
         this.diaDaSemana = DiaDaSemana;
     }
 
-    public Time getHoraInicio() {
+    public LocalTime getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Time horaInicio) {
+    public void setHoraInicio(LocalTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public Time getHoraFim() {
+    public LocalTime getHoraFim() {
         return horaFim;
     }
 
-    public void setHoraFim(Time horaFim) {
+    public void setHoraFim(LocalTime horaFim) {
         this.horaFim = horaFim;
     }
 
     public String toString() {
-        return diaDaSemana.name() + "-" + horaInicio.toString() + "~" + horaFim.toString();
+        return diaDaSemana.name() + " - " + horaInicio.toString() + " ~ " + horaFim.toString();
     }
 
 }

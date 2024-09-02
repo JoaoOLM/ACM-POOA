@@ -6,8 +6,12 @@ import com.example.consultasmedicas.model.Doctor;
 import com.example.consultasmedicas.model.Patient;
 
 public class UserFactory {
+    private static UserFactory instance;
     private PatientService patientService = PatientService.getInstance();
     private DoctorService doctorService = DoctorService.getInstance();
+
+    private UserFactory() {
+    }
 
     public Doctor criarMedico(Long id, String nome, String cpf, LocalDate nasc, String telefone, String email,
             String endereco, String formacao, String crm) {
@@ -25,5 +29,12 @@ public class UserFactory {
         patientService.adicionarPaciente(paciente);
 
         return paciente;
+    }
+
+    public static UserFactory getInstance() {
+        if (instance == null)
+            instance = new UserFactory();
+
+        return instance;
     }
 }

@@ -1,8 +1,5 @@
 package com.example.consultasmedicas.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Local {
     // Atributos
     private Long id;
@@ -11,13 +8,17 @@ public class Local {
     private String telefone;
     private String fotos;
 
-    // Relacionamentos
-    private List<Doctor> medicos = new ArrayList<>();
-
     // Métodos
 
     public Long getId() {
         return id;
+    }
+
+    public Local(Long id, String nome, String endereco, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
     }
 
     public void setId(Long id) {
@@ -56,12 +57,7 @@ public class Local {
         this.fotos = fotos;
     }
 
-    public List<Doctor> getMedicos() {
-        return medicos;
+    public String toString() {
+        return getNome() + " - " + getEndereco() + ". Tel: " + getTelefone();
     }
-
-    public void setMedicos(List<Doctor> medicos) {
-        this.medicos = medicos;
-    }
-
 }
