@@ -10,16 +10,12 @@ import com.example.consultasmedicas.model.Availability;
 import com.example.consultasmedicas.model.Doctor;
 import com.example.consultasmedicas.model.Local;
 import com.example.consultasmedicas.model.Patient;
-import com.example.consultasmedicas.services.DoctorService;
 import com.example.consultasmedicas.services.UserFactory;
 import com.example.consultasmedicas.services.appointment.AppointmentService;
 
-
 public class AlterationAppointmentCase {
-
     public static void main(String[] args) {
         UserFactory userFactory = UserFactory.getInstance();
-        DoctorService doctorService = DoctorService.getInstance();
         AppointmentService consultaService = AppointmentService.getInstance();
 
         System.out.println("-=-=- Criando médica -=-=-=-");
@@ -30,7 +26,8 @@ public class AlterationAppointmentCase {
 
         System.out.println("-=-=- Adicionando disponibilidade -=-=-");
         catherine.adicionarDisponibilidade(new Availability(DayOfWeek.MONDAY, LocalTime.of(8, 0), LocalTime.of(16, 0)));
-        catherine.adicionarDisponibilidade(new Availability(DayOfWeek.TUESDAY, LocalTime.of(8, 0), LocalTime.of(16, 0)));
+        catherine
+                .adicionarDisponibilidade(new Availability(DayOfWeek.TUESDAY, LocalTime.of(8, 0), LocalTime.of(16, 0)));
         catherine.adicionarDisponibilidade(new Availability(DayOfWeek.FRIDAY, LocalTime.of(8, 0), LocalTime.of(16, 0)));
 
         System.out.println("-=-=- Adicionando local -=-=-");
@@ -40,11 +37,12 @@ public class AlterationAppointmentCase {
         Patient pacienteVitor = userFactory.criarPaciente(5L, "Vitor Recoaro", "123456023934", LocalDate.of(2000, 5, 2),
                 "11972947772",
                 "vitor@email.com", "Rua das Acácias, 64");
-        
+
         System.out.println(
-                    "-=-=- Agendando consulta terça feira, as 12h na clínica Santa Helena com a Dra. Catherine -=-=-");
-        Appointment consulta = consultaService.criarConsulta(catherine, pacienteVitor, LocalDateTime.of(2024, 9, 3, 12, 0),
-                    catherine.getLocaisAtendidos().get(0), 0L, 500.0);
+                "-=-=- Agendando consulta terça feira, as 12h na clínica Santa Helena com a Dra. Catherine -=-=-");
+        Appointment consulta = consultaService.criarConsulta(catherine, pacienteVitor,
+                LocalDateTime.of(2024, 9, 3, 12, 0),
+                catherine.getLocaisAtendidos().get(0), 0L, 500.0);
 
         System.out.println("Consulta agendada para: " + consulta.getDataHora());
 
