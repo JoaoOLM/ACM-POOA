@@ -7,7 +7,7 @@ public class DateTimeAlteration implements AppointmentAlteration {
     private static DateTimeAlteration instance;
 
     private DateTimeAlteration() {
-    };
+    }
 
     public static DateTimeAlteration getInstance() {
         if (instance == null)

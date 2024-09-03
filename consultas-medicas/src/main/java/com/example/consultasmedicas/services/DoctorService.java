@@ -41,7 +41,7 @@ public class DoctorService {
     private boolean verificarMedicoComFiltro(Doctor medico, String filtro) {
         return medico.getNome().contains(filtro) || medico.getCpf().contains(filtro)
                 || medico.getEmail().contains(filtro) || medico.getFormacao().contains(filtro)
-                || medico.getCRM().contains(filtro);
+                || medico.getCrm().contains(filtro);
     }
 
     public Doctor procurarMedico(Long idMedico) {

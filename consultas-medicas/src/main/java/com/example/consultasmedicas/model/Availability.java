@@ -21,8 +21,8 @@ public class Availability {
         this.horaFim = horaFim;
     }
 
-    public void setDiaDaSemana(DayOfWeek DiaDaSemana) {
-        this.diaDaSemana = DiaDaSemana;
+    public void setDiaDaSemana(DayOfWeek diaDaSemana) {
+        this.diaDaSemana = diaDaSemana;
     }
 
     public LocalTime getHoraInicio() {

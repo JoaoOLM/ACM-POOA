@@ -99,5 +99,4 @@ public abstract class User implements AppointmentSubscriber {
         System.out.println(convenio.getName() + " foi removido dos seus convênios.");
     }
 
-    public abstract void notificarAlteracaoConsulta(String msg);
 }

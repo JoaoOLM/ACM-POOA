@@ -7,7 +7,7 @@ public class StatusAlteration implements AppointmentAlteration {
     private static StatusAlteration instance;
 
     private StatusAlteration() {
-    };
+    }
 
     public static StatusAlteration getInstance() {
         if (instance == null)

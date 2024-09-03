@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Doctor extends User {
     // Atributos
-    private String CRM;
+    private String crm;
     private String formacao;
 
     // Relacionamentos
@@ -20,15 +20,15 @@ public class Doctor extends User {
     public Doctor(Long id, String nome, String cpf, LocalDate dataNascimento, String telefone, String email,
             String endereco, String crm, String formacao) {
         super(id, nome, cpf, dataNascimento, telefone, email, endereco);
-        this.CRM = crm;
+        this.crm = crm;
         this.formacao = formacao;
         this.disponibilidades = new ArrayList<Availability>();
         this.especialidades = new ArrayList<Speciality>();
         this.locaisAtendidos = new ArrayList<Local>();
     }
 
-    public String getCRM() {
-        return CRM;
+    public String getCrm() {
+        return crm;
     }
 
     public String getFormacao() {
