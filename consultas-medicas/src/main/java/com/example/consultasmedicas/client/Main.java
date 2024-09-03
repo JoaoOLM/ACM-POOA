@@ -14,41 +14,44 @@ public class Main {
         int opcao = 0;
 
         clearScreen();
-        System.out.println("Bem-vindo ao sistema de gerenciamento de consultas médicas. Nosso sistema conta com 3 casos de uso atualmente e pode ser testado via" + 
-                            " terminal. Esperamos que tenha uma experiência agradável. Em caso de dúvidas, entre em contato.");
+        System.out.println(
+                "Bem-vindo ao sistema de gerenciamento de consultas médicas. Nosso sistema conta com 3 casos de uso atualmente e pode ser testado via"
+                        +
+                        " terminal. Esperamos que tenha uma experiência agradável. Em caso de dúvidas, entre em contato.");
         System.out.println("");
 
         while (opcao != 4) {
             System.out.println("-=-=- Menu de Gerenciamento de Casos de Uso -=-=-");
             System.out.println("1. Agendar Consulta");
             System.out.println("2. Criar Consulta pelo Médico");
-            System.out.println("3. Alterar consulta"); 
+            System.out.println("3. Alterar consulta");
             System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
+            clearScreen();
 
             switch (opcao) {
                 case 1:
-                    ScheduleAppointmentCase.main(null); 
-                    System.out.println("Pressione Enter para continuar");
-                    scanner.nextLine(); 
+                    ScheduleAppointmentCase.main(null);
+                    System.out.println("\nPressione Enter para continuar");
+                    scanner.nextLine();
                     break;
                 case 2:
                     CreateAppointmentByDoctorCase.main(null);
-                    System.out.println("Pressione Enter para continuar");
-                    scanner.nextLine(); 
+                    System.out.println("\nPressione Enter para continuar");
+                    scanner.nextLine();
                     break;
                 case 3:
                     AlterationAppointmentCase.main(null);
-                    System.out.println("Pressione Enter para continuar");
-                    scanner.nextLine(); 
+                    System.out.println("\nPressione Enter para continuar");
+                    scanner.nextLine();
                     break;
                 case 4:
-                    System.out.println("Saindo...");
+                    System.out.println("\nSaindo...");
                     break;
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
+                    System.out.println("\nOpção inválida. Tente novamente.");
             }
             clearScreen();
         }

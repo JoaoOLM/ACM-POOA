@@ -15,7 +15,6 @@ import com.example.consultasmedicas.model.User;
 public class AppointmentService {
     private static AppointmentService instance;
     private List<Appointment> consultas;
-    private AppointmentAlteration alteracaoConsulta;
 
     private AppointmentService() {
         consultas = new ArrayList<Appointment>();
@@ -31,27 +30,26 @@ public class AppointmentService {
     public Appointment criarConsulta(Doctor medico, Patient paciente, LocalDateTime dataHora, Local local, long id,
             double valor) {
         Appointment novaConsulta = new Appointment(id, valor, dataHora, paciente, medico, local);
-        alteracaoConsulta = StatusAlteration.getInstance();
 
         consultas.add(novaConsulta);
-        notificarAlteracaoConsulta(novaConsulta);
+        notificarAlteracaoConsulta(novaConsulta, StatusAlteration.getInstance());
 
         return novaConsulta;
     }
 
     public void cancelarConsulta(Long idConsulta) {
         Appointment consulta = procurarConsulta(idConsulta);
-        alteracaoConsulta = StatusAlteration.getInstance();
+
         consulta.setStatus(AppointmentStatus.CANCELED);
 
-        notificarAlteracaoConsulta(consulta);
+        notificarAlteracaoConsulta(consulta, StatusAlteration.getInstance());
     }
 
     public void reagendarConsulta(Appointment consulta, LocalDateTime novaDataHora) {
-        alteracaoConsulta = DateTimeAlteration.getInstance();
+
         consulta.setDataHora(novaDataHora);
 
-        notificarAlteracaoConsulta(consulta);
+        notificarAlteracaoConsulta(consulta, DateTimeAlteration.getInstance());
     }
 
     public List<Appointment> listarConsultas(User usuario) {
@@ -80,7 +78,7 @@ public class AppointmentService {
                         && consulta.getPaciente().getNome() == usuario.getNome());
     }
 
-    private void notificarAlteracaoConsulta(Appointment consulta) {
+    private void notificarAlteracaoConsulta(Appointment consulta, AppointmentAlteration alteracaoConsulta) {
         consulta.notificarSubscribers(alteracaoConsulta.getText(consulta));
     }
 }
